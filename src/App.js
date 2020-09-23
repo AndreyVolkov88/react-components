@@ -1,4 +1,4 @@
-// Next lesson number 4. Теория. Стилизация компонентов Vladilen
+// Next lesson number 4. Теория. динамический классы
 
 import React, { Component } from 'react';
 import './App.css';
@@ -44,7 +44,7 @@ class App extends Component {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      margin: '50px auto'
+      margin: '50px auto',
     }
 
     let cars = null
@@ -71,8 +71,13 @@ class App extends Component {
         <button 
           onClick={this.toggeleCarsHandler}// при клике меняем флаг в showCars:  с false на true
         >Toggle cars</button>
-
-        { cars }
+        <div stayle={{
+          width: 400,
+          margin: 'auto',
+          paddingTop: '20px',
+        }}>
+          { cars }
+        </div>
       </div>
     );
   }

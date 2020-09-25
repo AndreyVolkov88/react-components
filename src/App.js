@@ -1,20 +1,32 @@
-// Next lesson number 4. Теория. динамический классы
-
+// Next lesson number 5. Теория. Компоненты React 1.
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import Car from "./Car/Car";
 
 class App extends Component {
-  state = {
-    cars: [
-      { name: "Lexus LX", year: "2018" },
-      { name: "Audi", year: "2016" },
-      { name: "Porsche", year: "2020" },
-    ],
+  constructor(props) {
+    super(props)
+      this.state = {
+        cars: [
+          { name: "Lexus LX", year: "2018" },
+          { name: "Audi", year: "2016" },
+          { name: "Porsche", year: "2020" },
+        ],
+    
+        pageTitle: "React Components",
+        showCars: false, //Cтавим флаг false для переключения состояния кнопки Toggle cars
+      };
+  }
+  // state = {
+  //   cars: [
+  //     { name: "Lexus LX", year: "2018" },
+  //     { name: "Audi", year: "2016" },
+  //     { name: "Porsche", year: "2020" },
+  //   ],
 
-    pageTitle: "React Components",
-    showCars: false, //Cтавим флаг false для переключения состояния кнопки Toggle cars
-  };
+  //   pageTitle: "React Components",
+  //   showCars: false, //Cтавим флаг false для переключения состояния кнопки Toggle cars
+  // };
 
   //Функция которая меняет состояние кнопки с false на true
   toggeleCarsHandler = () => {
@@ -70,10 +82,12 @@ class App extends Component {
         <h1>{this.state.pageTitle}</h1>
 
         <button
+          className={"AppButton"}
           onClick={this.toggeleCarsHandler} // при клике меняем флаг в showCars:  с false на true
         >
           Toggle cars
         </button>
+
         <div
           stayle={{
             width: 400,
